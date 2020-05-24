@@ -1,0 +1,65 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<configuration>
+    <!--<property resource="application.yml"/>-->
+    <springProperty scope="context" name="loggingFilePath" source="logging.path"/>
+    <springProperty scope="context" name="springAppName" source="spring.application.name"/>
+    <springProperty scope="context" name="usersApplicationLoggingFormat" source="users-application.logging.format"/>
+
+    <property name="LOG_FORMAT" value="${usersApplicationLoggingFormat}"/>
+    <property name="LOG_FILE" value="${loggingFilePath}/${springAppName}"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd'T'HH:mm:ss.sss'Z'}] [%C] [%t] [%L] [%-5p] %m%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE}</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${loggingFilePath}/archived/app.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <!-- each archived file, size max 10MB -->
+            <maxFileSize>10MB</maxFileSize>
+            <!-- total size of all archive files, if total size > 20GB, it will delete old archived file -->
+            <totalSizeCap>20GB</totalSizeCap>
+            <!-- 60 days to keep -->
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+        <if condition='property("LOG_FORMAT").equalsIgnoreCase("JSON")'>
+            <then>
+                <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+                    <providers>
+                        <!-- provides the fields in the configured pattern -->
+                        <pattern>
+                            <!-- the pattern that defines what to include -->
+                            <pattern>
+                                {"timestamp" : "%d{yyyy-MM-dd'T'HH:mm:ss.sss'Z'}",
+                                "severity" : "%level",
+                                "service" : "${springAppName:-}",
+                                "trace" : "%X{traceId:-}",
+                                "span" : "%X{spanId:-}",
+                                "pid" : "${PID:-}",
+                                "thread" : "%thread",
+                                "class" : "%logger{40}",
+                                "message" : "%message",
+                                "exception" : "%ex"}
+                            </pattern>
+                        </pattern>
+                    </providers>
+                </encoder>
+            </then>
+            <else>
+                <encoder>
+                    <pattern>%d %p %c{1.} [%t] %m%n</pattern>
+                </encoder>
+            </else>
+        </if>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

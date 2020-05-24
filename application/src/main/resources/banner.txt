@@ -1,0 +1,12 @@
+${AnsiColor.GREEN}
+
+#     #  #####  ####### ######   #####
+#     # #     # #       #     # #     #
+#     # #       #       #     # #
+#     #  #####  #####   ######   #####
+#     #       # #       #   #         #
+#     # #     # #       #    #  #     #
+ #####   #####  ####### #     #  #####
+
+${AnsiColor.BRIGHT_RED}Spring application made with Spring Boot 2.0
+
