@@ -1,12 +1,12 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <configuration>
     <!--<property resource="application.yml"/>-->
-    <springProperty scope="context" name="loggingFilePath" source="logging.path"/>
+    <springProperty scope="context" name="loggingFilePath" source="logging.file.path"/>
     <springProperty scope="context" name="springAppName" source="spring.application.name"/>
-    <springProperty scope="context" name="usersApplicationLoggingFormat" source="users-application.logging.format"/>
+    <springProperty scope="context" name="templateApplicationLoggingFormat" source="template-application.logging.format"/>
 
-    <property name="LOG_FORMAT" value="${usersApplicationLoggingFormat}"/>
-    <property name="LOG_FILE" value="${loggingFilePath}/${springAppName}"/>
+    <property name="LOG_FORMAT" value="${templateApplicationLoggingFormat}"/>
+    <property name="LOG_FILE" value="${loggingFilePath}/${springAppName}.log"/>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>

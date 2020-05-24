@@ -25,7 +25,7 @@ public class LoggingAspect {
 		this.usersProperties = usersProperties;
 	}
 
-	@Pointcut("execution(public * fr.society.template.application.web.*.*(..))")
+	@Pointcut("execution(public * fr.society.template.application.web.rest.*.*(..))")
 	public void controllerMethodTime() {
 		//See spring documentation
 	}
@@ -35,7 +35,7 @@ public class LoggingAspect {
 		//See spring documentation
 	}
 
-	@Pointcut("execution(public * fr.society.template.repository.*.*(..))")
+	@Pointcut("execution(public * fr.society.template.repository.*.*.*(..))")
 	public void repositoryMethodTime() {
 		//See spring documentation
 	}
@@ -50,8 +50,14 @@ public class LoggingAspect {
 		return output;
 	}
 
+	/**
+	 * if the execution time of the method is consistent, we log a warning
+	 * @param proceedingJoinPoint
+	 * @param stopWatch
+	 */
 	private void locExecutionTime(ProceedingJoinPoint proceedingJoinPoint, StopWatch stopWatch) {
 		String message = composeLogMessage(proceedingJoinPoint, stopWatch);
+		log.warning(message);
 		if(stopWatch.getTime() > this.usersProperties.getLogging().getAlertWarningMethodExecutionTime()){
 			log.warning(message);
 		}

@@ -13,17 +13,9 @@
 
     <packaging>pom</packaging>
 
-    <!--
-    <parent>
-        <groupId>fr.axa.pfel</groupId>
-        <artifactId>pom-pfel</artifactId>
-        <version>0.0.1</version>
-    </parent>
-    -->
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot.version>2.0.0.RELEASE</spring-boot.version>
+        <spring-boot.version>2.2.7.RELEASE</spring-boot.version>
         <java.version>1.8</java.version>
         <querydsl-apt.version>4.1.4</querydsl-apt.version>
         <commons-lang3.version>3.9</commons-lang3.version>
@@ -39,6 +31,7 @@
         <cucumber.version>5.7.0</cucumber.version>
         <hazelcast-spring.version>4.0.1</hazelcast-spring.version>
         <hazelcast-hibernate53.version>2.0.0</hazelcast-hibernate53.version>
+        <spring-cloud-starter-sleuth.version>2.2.2.RELEASE</spring-cloud-starter-sleuth.version>
     </properties>
 
     <modules>
@@ -69,7 +62,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-sleuth</artifactId>
-                <version>${spring-boot.version}</version>
+                <version>${spring-cloud-starter-sleuth.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -233,7 +226,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
-            <version>${spring-boot.version}</version>
+            <version>${spring-cloud-starter-sleuth.version}</version>
         </dependency>
 
         <dependency>

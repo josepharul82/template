@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-@ConfigurationProperties(prefix = "users-application", ignoreUnknownFields = true)
+@ConfigurationProperties(prefix = "template-application", ignoreUnknownFields = true)
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UsersProperties {
