@@ -25,17 +25,17 @@ public class LoggingAspect {
 		this.usersProperties = usersProperties;
 	}
 
-	@Pointcut("execution(public * fr.axa.editique.users.application.web.*.*(..))")
+	@Pointcut("execution(public * fr.society.template.application.web.*.*(..))")
 	public void controllerMethodTime() {
 		//See spring documentation
 	}
 
-	@Pointcut("execution(public * fr.axa.editique.users.service.impl.*.*(..))")
+	@Pointcut("execution(public * fr.society.template.service.impl.*.*(..))")
 	public void serviceMethodTime() {
 		//See spring documentation
 	}
 
-	@Pointcut("execution(public * fr.axa.editique.users.repository.*.*(..))")
+	@Pointcut("execution(public * fr.society.template.repository.*.*(..))")
 	public void repositoryMethodTime() {
 		//See spring documentation
 	}

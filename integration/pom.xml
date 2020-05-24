@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <groupId>fr.axa.editique.users</groupId>
-        <artifactId>users</artifactId>
+        <groupId>fr.society.template</groupId>
+        <artifactId>template</artifactId>
         <version>1.0.0.BUILD-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -14,7 +14,7 @@
 
 
         <dependency>
-            <groupId>fr.axa.editique.users</groupId>
+            <groupId>fr.society.template</groupId>
             <artifactId>model</artifactId>
         </dependency>
     </dependencies>

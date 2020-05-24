@@ -18,7 +18,7 @@ public class SwaggerConfig  {
     public Docket api() {
 
         return new Docket(DocumentationType.SWAGGER_2).select()
-                .apis(RequestHandlerSelectors.basePackage("fr.axa.editique.users.application.web"))
+                .apis(RequestHandlerSelectors.basePackage("fr.society.template.application.web"))
                 .paths(PathSelectors.any())
                 .build().apiInfo(apiEndPointsInfo());
     }

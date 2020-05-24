@@ -6,10 +6,10 @@
 
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>fr.axa.editique.users</groupId>
-    <artifactId>users</artifactId>
+    <groupId>fr.society.template</groupId>
+    <artifactId>template</artifactId>
     <version>1.0.0.BUILD-SNAPSHOT</version>
-    <name>users</name>
+    <name>template</name>
 
     <packaging>pom</packaging>
 
@@ -103,32 +103,32 @@
             <!-- project dependancies -->
             <!-- ================================================ -->
             <dependency>
-                <groupId>fr.axa.editique.users</groupId>
+                <groupId>fr.society.template</groupId>
                 <artifactId>model</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>fr.axa.editique.users</groupId>
+                <groupId>fr.society.template</groupId>
                 <artifactId>repository</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>fr.axa.editique.users</groupId>
+                <groupId>fr.society.template</groupId>
                 <artifactId>service-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>fr.axa.editique.users</groupId>
+                <groupId>fr.society.template</groupId>
                 <artifactId>service-impl</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>fr.axa.editique.users</groupId>
+                <groupId>fr.society.template</groupId>
                 <artifactId>integration</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>fr.axa.editique.users</groupId>
+                <groupId>fr.society.template</groupId>
                 <artifactId>application</artifactId>
                 <version>${project.version}</version>
             </dependency>

@@ -4,7 +4,7 @@ import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.JPQLQuery;
 import fr.society.template.dto.SearchUserDTO;
 import fr.society.template.dto.UserDTO;
-import fr.axa.editique.users.model.QUser;
+import fr.society.template.model.QUser;
 import fr.society.template.model.User;
 import fr.society.template.repository.util.RepositoryUtil;
 import org.springframework.data.domain.Page;
