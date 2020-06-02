@@ -1,14 +1,6 @@
 package fr.society.template.dto;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.Singular;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.Set;
@@ -21,7 +13,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level=AccessLevel.PROTECTED)
-public class UserDTO {
+public class UserDTO extends AbstractDTO{
 
     Long id;
     Long version;

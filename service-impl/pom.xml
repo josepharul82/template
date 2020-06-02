@@ -13,17 +13,25 @@
     <dependencies>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>fr.society.template</groupId>
             <artifactId>repository</artifactId>
         </dependency>
+
         <dependency>
             <groupId>fr.society.template</groupId>
             <artifactId>service-api</artifactId>
         </dependency>
+
         <dependency>
             <groupId>fr.society.template</groupId>
             <artifactId>model</artifactId>
         </dependency>
+
         <dependency>
             <groupId>fr.society.template</groupId>
             <artifactId>integration</artifactId>
@@ -33,6 +41,17 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-jdk8</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast-spring</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast</artifactId>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -50,7 +69,6 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 </project>

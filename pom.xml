@@ -189,10 +189,9 @@
 
             <dependency>
                 <groupId>com.hazelcast</groupId>
-                <artifactId>hazelcast-hibernate53</artifactId>
-                <version>${hazelcast-hibernate53.version}</version>
+                <artifactId>hazelcast</artifactId>
+                <version>${hazelcast-spring.version}</version>
             </dependency>
-
 
             <!-- ================================================ -->
             <!-- Cucumber -->

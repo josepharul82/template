@@ -2,13 +2,14 @@ package fr.society.template.dto;
 
 import fr.society.template.constante.Field;
 import fr.society.template.constante.OrderSQL;
-import lombok.AccessLevel;
-import lombok.Data;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-@Data
+@Getter
+@Setter
+@ToString
 @FieldDefaults(level=AccessLevel.PROTECTED)
-public class SortField {
+public class SortField extends AbstractDTO{
     Field field;
     OrderSQL order;
 }

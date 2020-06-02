@@ -1,12 +1,6 @@
 package fr.society.template.dto;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 
@@ -17,7 +11,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level=AccessLevel.PROTECTED)
-public class SearchUserDTO {
+public class SearchUserDTO extends AbstractDTO{
     UserDTO userDTO;
     PageParamDTO pageParamDTO;
 }

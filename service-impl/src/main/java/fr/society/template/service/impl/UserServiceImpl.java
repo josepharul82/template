@@ -8,6 +8,7 @@ import fr.society.template.service.api.UserService;
 import fr.society.template.service.mapper.UserMapper;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,7 @@ public class UserServiceImpl implements UserService {
         return userMapper.entityToDTO(userRepository.findAllById(userIds));
     }
 
+    @Cacheable(value = "userInfo", key = "#userId")
     public UserDTO findById(Long userId) {
         return userMapper.entityToDTO(userRepository.findById(userId).orElse(null));
     }
