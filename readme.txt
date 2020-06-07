@@ -13,3 +13,6 @@ jdbc:h2:mem:users-app;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     "version": null
   }
 }
+Configure template as context-root in tomcat
+Add tomcat 9.0.35
+Add jar h2 to lib tomcat

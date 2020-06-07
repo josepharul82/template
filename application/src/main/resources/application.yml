@@ -1,6 +1,6 @@
-#server:
-#  servlet:
-#    context-path: /users
+server:
+  servlet:
+    context-path: /template
 
 spring:
   application:

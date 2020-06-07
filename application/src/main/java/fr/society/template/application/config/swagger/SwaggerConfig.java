@@ -32,5 +32,4 @@ public class SwaggerConfig  {
                 .contact(new Contact("Joseph ARUL", "https://www.test.fr", "joseph.arul@axa.fr"))
                 .build();
     }
-
 }
