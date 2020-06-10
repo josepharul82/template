@@ -33,6 +33,7 @@
         <hazelcast-hibernate53.version>2.0.0</hazelcast-hibernate53.version>
         <spring-cloud-starter-sleuth.version>2.2.2.RELEASE</spring-cloud-starter-sleuth.version>
         <h2.version>1.4.200</h2.version>
+        <postgresql.version>42.2.13</postgresql.version>
     </properties>
 
     <modules>
@@ -101,13 +102,18 @@
 
             <!-- =============================================== -->
             <!-- database -->
-            <!-- ================================================ -->
+            <!-- ================================================
             <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
                 <version>${h2.version}</version>
             </dependency>
-
+            -->
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.version}</version>
+            </dependency>
 
             <!-- =============================================== -->
             <!-- project dependancies -->
