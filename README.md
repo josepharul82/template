@@ -16,8 +16,14 @@ Template for spring boot project
         -  Add Spring config file
             <Parameter name="spring.config.location" value="C:\Users\josep\Documents\work\configuration\template\application-template.yml"/>   
 
-
-
+6.  Add application context in intellij
+    -   template   
+7.  Swagger url:
+    - http://localhost:8080/template/swagger-ui.html
+8.  Test in swagger
+    get method user-item-controller
+        run with id : 1   
+   
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
 
