@@ -1,14 +1,15 @@
 package fr.society.template.repository.users;
 
-import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.JPQLQuery;
 import fr.society.template.dto.SearchUserDTO;
-import fr.society.template.dto.UserDTO;
+import fr.society.template.model.QRole;
 import fr.society.template.model.QUser;
 import fr.society.template.model.User;
 import fr.society.template.repository.util.RepositoryUtil;
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
+
+import java.util.ArrayList;
 
 
 public class UserRepositoryImpl extends QuerydslRepositorySupport implements UserRepositoryCustom {
@@ -19,18 +20,15 @@ public class UserRepositoryImpl extends QuerydslRepositorySupport implements Use
 
     @Override
     public Page<User> findByCriteria(SearchUserDTO searchUserDTO) {
-        QUser users =  QUser.user;
-        JPQLQuery<User> jpqlQuery = from(users);
-        UserBuilderQuery userComposeQuery = getUserComposerQuery(searchUserDTO.getUserDTO(),jpqlQuery);
-        jpqlQuery = userComposeQuery.innerJoinRole().getJpqlQuery();
-        BooleanBuilder booleanBuilder = userComposeQuery.andFirstName().andLastName().andRole().getBooleanBuilder();
-        jpqlQuery.where(booleanBuilder);
-        return getPage(jpqlQuery ,RepositoryUtil.getPageRequest(searchUserDTO.getPageParamDTO()));
-    }
+        QUser user =  QUser.user;
+        QRole role = QRole.role;
 
-    private UserBuilderQuery getUserComposerQuery(UserDTO userDTO, JPQLQuery<User> jpqlQuery) {
-        return UserBuilderQuery.builder().userDTO(userDTO).jpqlQuery(jpqlQuery).booleanBuilder(new BooleanBuilder()).build();
+        JPQLQuery<User> jpqlQuery = from(user)
+                                    .innerJoin(user.roleList, QRole.role)
+                                    .where(user.firstName.equalsIgnoreCase(searchUserDTO.getUserDTO().getFirstName())
+                                            .and(user.lastName.equalsIgnoreCase(searchUserDTO.getUserDTO().getLastName()))
+                                            .and(role.in(new ArrayList(searchUserDTO.getUserDTO().getRoleList()))));
+        return getPage(jpqlQuery , RepositoryUtil.getPageRequest(searchUserDTO.getPageParamDTO()));
     }
-
 }
 

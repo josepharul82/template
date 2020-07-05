@@ -2,7 +2,10 @@ package fr.society.template.dto;
 
 import fr.society.template.constante.Field;
 import fr.society.template.constante.OrderSQL;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
 @Getter

@@ -23,13 +23,13 @@ public class RepositoryUtil {
     }
 
     public static OrderSQL getDirection(OrderSQL orderSQL) {
+        OrderSQL orderSQLToApply = null;
         if(orderSQL != null) {
-            OrderSQL orderSQLToApply = OrderSQL.ASC;
+            orderSQLToApply =  OrderSQL.ASC;
             if (orderSQL == OrderSQL.DESC) {
                 orderSQLToApply = OrderSQL.DESC;
             }
-            return orderSQLToApply;
         }
-        return null;
+        return orderSQLToApply;
     }
 }
